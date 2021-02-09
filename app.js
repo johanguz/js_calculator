@@ -16,44 +16,47 @@ for (let btn of btns) {
   if (btn.innerHTML === 'Enter') {
     btn.addEventListener('click', () => {
         operatorVal = input.value;
+        console.log(operatorVal);
         operate(operator, currentVal, operatorVal);
       })
 
     }
  
-
-else if (btn.innerHTML === 'clear') {
-  btn.addEventListener('click', () => {
-    input.value = "";
-    clear()});
+  else if (btn.innerHTML === 'clear') {
+    btn.addEventListener('click', () => {
+      input.value = "";
+      clear()});
+    }
+  else if (btn.innerHTML === '*') {
+    btn.addEventListener('click', () => {
+      operator = 'multiply';
+      currentVal = input.value;
+      input.value = "";})
+    }
+  else if (btn.innerHTML === '/') {
+    btn.addEventListener('click', () => {
+      operator = 'divide';
+      currentVal = input.value;
+      input.value = "";});
+    }
+  else if (btn.innerHTML === '+') {
+    btn.addEventListener('click', () => {
+      operator = 'add';
+      currentVal = input.value;
+      input.value = ""});
+      // input.value = "";});
+    }
+  else if (btn.innerHTML === '-') {
+    btn.addEventListener('click', () => {
+      operator = 'subtract';
+      currentVal = input.value;
+      input.value = "";});
+    }
+  else {
+    btn.addEventListener('click', () => {
+      input.value = input.value + btn.innerHTML;
+  })}
   }
-else if (btn.innerHTML === '*') {
-  btn.addEventListener('click', () => {
-    operator = 'multiply';
-    input.value = "";})
-  }
-else if (btn.innerHTML === '/') {
-  btn.addEventListener('click', () => {
-    operator = 'divide';
-    input.value = "";});
-  }
-else if (btn.innerHTML === '+') {
-  btn.addEventListener('click', () => {
-    operator = 'add';
-    currentVal = input.value;
-    input.value = ""});
-    // input.value = "";});
-  }
-else if (btn.innerHTML === '-') {
-  btn.addEventListener('click', () => {
-    operator = 'subtract';
-    input.value = "";});
-  }
-else {
-  btn.addEventListener('click', () => {
-    input.value = input.value + btn.innerHTML;
-})}
-}
 // function 
 // Core Operators
 const add = function (a,b)  {
@@ -76,11 +79,24 @@ function divide (a,b) {
 function operate (operator, a, b) {
  const inputOperator = operator.toLowerCase();
  if (inputOperator === 'add') {
-   let result = add(a,b)
-   input.innerHTML = result;
-  clear()}
- else if (inputOperator === 'subtract') {return subtract(a,b)}
- else if (inputOperator === 'multiply') {return multiply(a,b)}
- else if (inputOperator === 'divide') {return divide(a,b)}
+   let result = add(parseInt(a),parseInt(b))
+   input.value = result;
+   console.log(result)
+ }
+ else if (inputOperator === 'subtract') {
+  let result = subtract(parseInt(a),parseInt(b))
+  input.value = result;
+  console.log(result)
+  }
+ else if (inputOperator === 'multiply') {
+  let result = multiply(parseInt(a),parseInt(b))
+  input.value = result;
+  console.log(result)
+ }
+ else if (inputOperator === 'divide') {
+  let result = divide(parseInt(a),parseInt(b))
+  input.value = result;
+  console.log(result)
+  }
  else {return "not a valid operator"}
 };
