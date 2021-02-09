@@ -30,7 +30,7 @@ for (let btn of btns) {
   else if (btn.innerHTML === '*') {
     btn.addEventListener('click', () => {
       operator = 'multiply';
-      currentVal = input.value;
+      currentVal = parseFloat(input.value);
       input.value = "";})
     }
   else if (btn.innerHTML === '/') {
@@ -44,6 +44,7 @@ for (let btn of btns) {
       operator = 'add';
       currentVal = input.value;
       input.value = ""});
+      input.value = ""
       // input.value = "";});
     }
   else if (btn.innerHTML === '-') {
@@ -79,22 +80,22 @@ function divide (a,b) {
 function operate (operator, a, b) {
  const inputOperator = operator.toLowerCase();
  if (inputOperator === 'add') {
-   let result = add(parseInt(a),parseInt(b))
+   let result = add(parseFloat(a),parseFloat(b))
    input.value = result;
    console.log(result)
  }
  else if (inputOperator === 'subtract') {
-  let result = subtract(parseInt(a),parseInt(b))
+  let result = subtract(parseFloat(a),parseFloat(b))
   input.value = result;
   console.log(result)
   }
  else if (inputOperator === 'multiply') {
-  let result = multiply(parseInt(a),parseInt(b))
+  let result = multiply(parseFloat(a),parseFloat(b))
   input.value = result;
   console.log(result)
  }
  else if (inputOperator === 'divide') {
-  let result = divide(parseInt(a),parseInt(b))
+  let result = divide(parseFloat(a),parseFloat(b))
   input.value = result;
   console.log(result)
   }

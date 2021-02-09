@@ -19,3 +19,11 @@ body {
   font-size: 2.5rem;
   text-align: right;
 }
+
+.operator {
+  background-color: #845ec2;
+}
+
+.operator2 {
+  background-color: #ff5e78;
+}
